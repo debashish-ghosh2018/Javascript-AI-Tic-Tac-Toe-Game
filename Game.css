@@ -1,0 +1,310 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+}
+
+.game-container {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+h1 {
+  font-size: 36px;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #777;
+  margin-bottom: 20px;
+}
+
+/* 
+================================
+           Mode Selector
+================================= 
+*/
+
+.mode-selector {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.mode-btn {
+  flex: 1;
+  border: 2px solid #667eea;
+  background: #ffffff;
+  color: #667eea;
+  padding: 12px 10px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.mode-btn:hover {
+  background: #f0f2ff;
+}
+
+.mode-btn.active {
+  background: #667eea;
+  color: white;
+}
+
+/* 
+================================
+           Difficulty Selector
+================================= 
+*/
+
+.difficulty-container {
+  margin-bottom: 20px;
+  display: none;
+}
+
+.difficulty-container.show {
+  display: block;
+}
+
+.difficulty-label {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.difficulty-selector {
+  display: flex;
+  gap: 8px;
+}
+
+.difficulty-btn {
+  flex: 1;
+  border: 2px solid #ddd;
+  background: #fff;
+  color: #555;
+  padding: 9px 5px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.difficulty-btn:hover {
+  border-color: #667eea;
+  color: #667eea;
+}
+
+.difficulty-btn.active {
+  border-color: #667eea;
+  background: #667eea;
+  color: white;
+}
+
+/* 
+================================
+           Score Board
+================================= 
+*/
+
+.score-board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.score {
+  background: #f5f5f5;
+  padding: 15px 10px;
+  border-radius: 12px;
+  transition: 0.2s;
+}
+
+.score.active {
+  background: #667eea;
+  color: white;
+}
+
+.score-label {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.score-value {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* 
+================================
+           Status
+================================= 
+*/
+
+.status {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+  min-height: 24px;
+}
+
+/* 
+================================
+           Board
+================================= 
+*/
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto 25px;
+}
+
+.cell {
+  aspect-ratio: 1 / 1;
+  border: none;
+  border-radius: 15px;
+  background: #f1f3f6;
+  font-size: clamp(40px, 10vw, 70px);
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cell:hover:not(:disabled) {
+  background: #e4e7ec;
+  transform: scale(1.03);
+}
+
+.cell:disabled {
+  cursor: not-allowed;
+}
+
+.cell.x {
+  color: #667eea;
+}
+
+.cell.o {
+  color: #e74c3c;
+}
+
+.cell.winner {
+  background: #2ecc71;
+  color: white;
+  animation: winnerAnimation 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes winnerAnimation {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.05);
+  }
+}
+
+/* 
+================================
+           Action Buttons
+================================= 
+*/
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  border: none;
+  padding: 12px 22px;
+  border-radius: 10px;
+  background: #667eea;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.action-btn:hover {
+  background: #5568d8;
+  transform: translateY(-2px);
+}
+
+.action-btn.reset {
+  background: #e74c3c;
+}
+
+.action-btn.reset:hover {
+  background: #d63c2e;
+}
+
+/* 
+================================
+           Mobile
+================================= 
+*/
+
+@media (max-width: 500px) {
+  .game-container {
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .score {
+    padding: 12px 5px;
+  }
+
+  .score-value {
+    font-size: 22px;
+  }
+
+  .status {
+    font-size: 18px;
+  }
+
+  .mode-btn {
+    font-size: 12px;
+    padding: 10px 5px;
+  }
+
+  .difficulty-btn {
+    font-size: 11px;
+    padding: 8px 4px;
+  }
+}

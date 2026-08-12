@@ -1,0 +1,65 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+	<head> 
+		<meta charset="UTF-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		
+		<title>Tic Tac Toe</title>
+        <link rel="stylesheet" href="./Game.css" type="text/css" />
+	</head>
+  <body>
+	<div class="game-container">
+		<h1>Tic Tac Toe</h1>
+		<p class="subtitle" id="subtitle">Two players compete against each other</p>
+
+		<div class="mode-selector">
+			<button class="mode-btn active" id="pvpMode">Player vs Player</button>
+			<button class="mode-btn" id="aiMode">Player vs AI</button>
+		</div>
+		<div class="difficulty-container" id="difficultyContainer">
+			<span class="difficulty-label">AI Difficulty</span>
+			<div class="difficulty-selector">
+				<button class="difficulty-btn" data-difficulty="easy">Easy</button>
+				<button class="difficulty-btn active" data-difficulty="medium">Medium</button>
+				<button class="difficulty-btn" data-difficulty="hard">Hard</button>
+			</div>
+		</div>
+
+		<div class="score-board">
+			<div class="score active" id="playerXBox">
+				<div class="score-label" id="playerXLabel">Player X</div>
+				<div class="score-value" id="scoreX">0</div>
+			</div>
+			<div class="score" id="drawBox">
+				<div class="score-label">Draws</div>
+				<div class="score-value" id="scoreDraw">0</div>
+			</div>
+			<div class="score" id="playerOBox">
+				<div class="score-label" id="playerOLabel">Player O</div>
+				<div class="score-value" id="scoreO">0</div>
+			</div>
+		</div>
+		
+		<div class="status" id="status">Player X's turn</div>
+
+		<div class="board">
+			<button class="cell" data-index="0"></button>
+			<button class="cell" data-index="1"></button>
+			<button class="cell" data-index="2"></button>
+			<button class="cell" data-index="3"></button>
+			<button class="cell" data-index="4"></button>
+			<button class="cell" data-index="5"></button>
+			<button class="cell" data-index="6"></button>
+			<button class="cell" data-index="7"></button>
+			<button class="cell" data-index="8"></button>
+		</div>
+
+		<div class="buttons">
+			<button class="action-btn" id="newGame">New Game</button>
+			<button class="action-btn reset" id="resetScore">Reset Score</button>
+		</div>
+	</div>
+	
+	<script type="text/javascript" src='Game.js'></script>
+  </body>
+</html>
